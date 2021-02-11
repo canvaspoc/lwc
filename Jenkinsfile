@@ -75,7 +75,7 @@ node {
             // -------------------------------------------------------------------------
 
             stage('Push To Test Scratch Org') {
-                rc = command "${toolbelt}/sfdx force:source:push --targetusername HubOrg"
+                rc = command "${toolbelt}/sfdx force:source:deploy --targetusername HubOrg"
                 if (rc != 0) {
                     error 'Salesforce push to test scratch org failed.'
                 }
