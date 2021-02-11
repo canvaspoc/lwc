@@ -12,7 +12,8 @@ node {
     def PACKAGE_VERSION
     def SF_INSTANCE_URL = "https://login.salesforce.com"
 
-    def toolbelt ='C://Program Files//Salesforce CLI'
+    def toolbelt = tool 'toolbelt'
+
 
 
     // -------------------------------------------------------------------------
