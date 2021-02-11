@@ -62,12 +62,12 @@ node {
             // Display test scratch org info.
             // -------------------------------------------------------------------------
 
-            stage('Display Test Scratch Org') {
+           /* stage('Display Test Scratch Org') {
                 rc = command "${toolbelt}/sfdx force:org:display"
                 if (rc != 0) {
                     error 'Salesforce test scratch org display failed.'
                 }
-            }
+            }*/
 
 
             // -------------------------------------------------------------------------
@@ -75,7 +75,7 @@ node {
             // -------------------------------------------------------------------------
 
             stage('Push To Test Scratch Org') {
-                rc = command "${toolbelt}/sfdx force:source:push --targetusername ciorg"
+                rc = command "${toolbelt}/sfdx force:source:push --targetusername HubOrg"
                 if (rc != 0) {
                     error 'Salesforce push to test scratch org failed.'
                 }
