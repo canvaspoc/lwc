@@ -12,7 +12,7 @@ node {
     def PACKAGE_VERSION
     def SF_INSTANCE_URL = "https://login.salesforce.com"
 
-    def toolbelt = 'C://workspace//sfdx//bin'
+    def toolbelt = 'C://workspace//sfdx//Salesforce^ CLI/bin'
 
 
 
@@ -75,7 +75,7 @@ node {
             // -------------------------------------------------------------------------
 
             stage('Push To Test Scratch Org') {
-                rc = command "${toolbelt}/sfdx force:source:deploy -x ./src/package.xml"
+                rc = command "${toolbelt}/sfdx force:source:deploy -m ApexClass -u sandeep.sfdx@icloud.com"
                 if (rc != 0) {
                     error 'Salesforce push to test scratch org failed.'
                 }
