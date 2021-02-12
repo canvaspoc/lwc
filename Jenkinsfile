@@ -98,19 +98,19 @@ node {
             // Delete test scratch org.
             // -------------------------------------------------------------------------
 
-            stage('Delete Test Scratch Org') {
+           /* stage('Delete Test Scratch Org') {
                 rc = command "${toolbelt}/sfdx force:org:delete --targetusername ciorg --noprompt"
                 if (rc != 0) {
                     error 'Salesforce test scratch org deletion failed.'
                 }
-            }
+            }*/
 
 
             // -------------------------------------------------------------------------
             // Create package version.
             // -------------------------------------------------------------------------
 
-            stage('Create Package Version') {
+          /*  stage('Create Package Version') {
                 if (isUnix()) {
                     output = sh returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg"
                 } else {
@@ -129,38 +129,38 @@ node {
                 response = null
 
                 echo ${PACKAGE_VERSION}
-            }
+            }*/
 
 
             // -------------------------------------------------------------------------
             // Create new scratch org to install package to.
             // -------------------------------------------------------------------------
 
-            stage('Create Package Install Scratch Org') {
+           /* stage('Create Package Install Scratch Org') {
                 rc = command "${toolbelt}/sfdx force:org:create --targetdevhubusername HubOrg --setdefaultusername --definitionfile config/project-scratch-def.json --setalias installorg --wait 10 --durationdays 1"
                 if (rc != 0) {
                     error 'Salesforce package install scratch org creation failed.'
                 }
             }
-
-
+             */  
+                
             // -------------------------------------------------------------------------
             // Display install scratch org info.
             // -------------------------------------------------------------------------
 
-            stage('Display Install Scratch Org') {
+            /*stage('Display Install Scratch Org') {
                 rc = command "${toolbelt}/sfdx force:org:display --targetusername installorg"
                 if (rc != 0) {
                     error 'Salesforce install scratch org display failed.'
                 }
-            }
+            }*/
 
 
             // -------------------------------------------------------------------------
             // Install package in scratch org.
             // -------------------------------------------------------------------------
 
-            stage('Install Package In Scratch Org') {
+            /*stage('Install Package In Scratch Org') {
                 rc = command "${toolbelt}/sfdx force:package:install --package ${PACKAGE_VERSION} --targetusername installorg --wait 10"
                 if (rc != 0) {
                     error 'Salesforce package install failed.'
@@ -190,6 +190,7 @@ node {
                     error 'Salesforce package install scratch org deletion failed.'
                 }
             }
+           */ 
         }
     }
 }
