@@ -75,7 +75,7 @@ node {
             // -------------------------------------------------------------------------
 
             stage('Push To Test Scratch Org') {
-                rc = command "${toolbelt}/sfdx force:source:deploy -m ApexClass -u sandeep.sfdx@icloud.com"
+                rc = command "${toolbelt}/sfdx force:source:deploy -m ApexClass -u sandeep.sfdx@icloud.com -l RunLocalTests"
                 if (rc != 0) {
                     error 'Salesforce push to test scratch org failed.'
                 }
